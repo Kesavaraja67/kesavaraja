@@ -3,26 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0C0C0F;
-  --text: #EBEBEB;
-  --cyan: #00FFCC;
-  --violet: #7000FF;
+  --bg: #0c0c0f;
+  --text: #ebebeb;
+  --cyan: #00ffcc;
+  --violet: #7000ff;
 }
 
-html, body {
+html,
+body {
   background-color: var(--bg);
   color: var(--text);
-  cursor: none;
   overflow-x: hidden;
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: "Cabinet Grotesk", sans-serif;
 }
 
 .font-clash {
-  font-family: 'Clash Display', sans-serif;
+  font-family: "Clash Display", sans-serif;
 }
 
 .font-cabinet {
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: "Cabinet Grotesk", sans-serif;
 }
 
 /* Noise overlay */

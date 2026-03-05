@@ -3,7 +3,6 @@ import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 import SmoothScroll from "@/components/layout/SmoothScroll";
-import CustomCursor from "@/components/layout/CustomCursor";
 import Navbar from "@/components/layout/Navbar";
 import Preloader from "@/components/sections/Preloader";
 import KesavarajaChat from "@/components/ui/KesavarajaChat";
@@ -79,7 +78,6 @@ export default function RootLayout({
       <body>
         <Preloader />
         <SmoothScroll>
-          <CustomCursor />
           <Navbar />
           <main className="relative z-10 min-h-screen">
             {children}
