@@ -8,12 +8,7 @@ import { useCursorStore } from "@/lib/store";
 export default function Skills() {
   const { setHoverState } = useCursorStore();
   
-  const allSkills = [
-    ...SITE_DATA.skills.frontend,
-    ...SITE_DATA.skills.backend,
-    ...SITE_DATA.skills.tools,
-    ...SITE_DATA.skills.other
-  ];
+  const allSkills = Object.values(SITE_DATA.skills).flat();
 
   return (
     <section id="skills" className="relative w-full pt-12 pb-24 md:pt-24 md:pb-32 z-10 overflow-hidden">
@@ -26,30 +21,29 @@ export default function Skills() {
           </div>
         </BlurIn>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-12 md:gap-20 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-12 md:gap-20 mt-12">
           {Object.entries(SITE_DATA.skills).map(([category, skills], i) => (
-            <div key={category} className="flex flex-col gap-6">
-              <BlurIn delay={0.1 + i * 0.1}>
+            <BlurIn key={category} delay={0.1 + i * 0.1}>
+              <div className="flex flex-col gap-6">
                 <h3 className="font-mono text-sm uppercase tracking-widest text-[var(--cyan)] border-b border-white/20 pb-4 mb-2">
                   {"// "}
                   {category}
                 </h3>
-              </BlurIn>
-              
-              <div className="flex flex-wrap gap-3">
-                {skills.map((skill, j) => (
-                  <BlurIn key={skill} delay={0.2 + i * 0.05 + j * 0.05} className="inline-block">
+                
+                <div className="flex flex-wrap gap-3">
+                  {skills.map((skill) => (
                     <div 
+                      key={skill}
                       className="px-5 py-2.5 rounded-full border border-white/10 bg-white/5 font-cabinet text-sm md:text-base text-white/80 hover:bg-[var(--cyan)] hover:text-black hover:border-transparent transition-all duration-300 transform hover:-translate-y-1 cursor-none backdrop-blur-sm"
                       onMouseEnter={() => setHoverState(true, 'text')}
                       onMouseLeave={() => setHoverState(false)}
                     >
                       {skill}
                     </div>
-                  </BlurIn>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            </BlurIn>
           ))}
         </div>
       </div>

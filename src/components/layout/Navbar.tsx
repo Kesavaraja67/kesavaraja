@@ -58,6 +58,22 @@ export default function Navbar() {
               Work
             </a>
             <a
+              href="#open-source"
+              className="hidden md:block transition-colors hover:text-[var(--cyan)] cursor-none"
+              onMouseEnter={() => setHoverState(true, 'link')}
+              onMouseLeave={() => setHoverState(false)}
+            >
+              Open Source
+            </a>
+            <a
+              href="#skills"
+              className="hidden md:block transition-colors hover:text-[var(--cyan)] cursor-none"
+              onMouseEnter={() => setHoverState(true, 'link')}
+              onMouseLeave={() => setHoverState(false)}
+            >
+              Skills
+            </a>
+            <a
               href="#about"
               className="hidden md:block transition-colors hover:text-[var(--cyan)] cursor-none"
               onMouseEnter={() => setHoverState(true, 'link')}

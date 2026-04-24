@@ -7,21 +7,20 @@ import { ScrollTrigger, gsap } from "@/lib/gsap";
 export default function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.1, // Cinematic ease requirement
+      lerp: 0.08,
       smoothWheel: true,
+      autoRaf: false,
     });
 
     lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000); // gsap provides time in seconds, lenis expects ms
-    });
-
+    const tickerCallback = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(tickerCallback);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
       lenis.destroy();
-      gsap.ticker.remove(lenis.raf);
+      gsap.ticker.remove(tickerCallback);
     };
   }, []);
 

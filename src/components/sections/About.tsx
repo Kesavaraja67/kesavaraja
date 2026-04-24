@@ -54,10 +54,8 @@ export default function About() {
           {/* STATS */}
           <div ref={statsRef} className="flex flex-wrap gap-10 md:gap-16 mt-12 md:mt-20 pt-8 md:pt-12 border-t border-white/5">
             <div>
-              <div className="text-5xl md:text-7xl font-clash font-semibold text-white mb-1 md:mb-3">
-                <span className="stat-number inline-block min-w-[1ch]" data-target={parseInt(SITE_DATA.yearsExp)}>0</span>+
-              </div>
-              <div className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/40">Years Exp</div>
+              <div className="text-5xl md:text-7xl font-clash font-semibold text-white mb-1 md:mb-3">{SITE_DATA.cgpa}</div>
+              <div className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/40">CGPA / 10.0</div>
             </div>
             <div>
               <div className="text-5xl md:text-7xl font-clash font-semibold text-white mb-1 md:mb-3">
@@ -66,10 +64,12 @@ export default function About() {
               <div className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/40">Projects</div>
             </div>
             <div>
-              <div className="text-5xl md:text-7xl font-clash font-semibold text-[var(--cyan)] mb-1 md:mb-3">
-                <span className="stat-number inline-block min-w-[1ch]" data-target={parseInt(SITE_DATA.openSourceCount)}>0</span>+
-              </div>
-              <div className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-[var(--cyan)]/60">Open Source</div>
+              <div className="text-5xl md:text-7xl font-clash font-semibold text-[var(--cyan)] mb-1 md:mb-3">1896+</div>
+              <div className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-[var(--cyan)]/60">Lines Merged</div>
+            </div>
+            <div>
+              <div className="text-5xl md:text-7xl font-clash font-semibold text-white mb-1 md:mb-3">8+</div>
+              <div className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/40">Certifications</div>
             </div>
           </div>
         </div>
@@ -87,8 +87,9 @@ export default function About() {
               src="/profile.jpeg"
               alt="Kesavaraja Portrait"
               fill
+              priority
               className="object-cover object-[center_20%] grayscale contrast-125 brightness-90 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100 transition-all duration-700 filter group-hover:scale-105"
-              sizes="(max-width: 1024px) 100vw, 40vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </TiltCard>
         </div>

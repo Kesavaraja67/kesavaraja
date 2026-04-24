@@ -22,34 +22,16 @@ export default function CustomCursor() {
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      
-      // Move dot instantly
-      gsap.to(cursor, {
-        x: mouseX,
-        y: mouseY,
-        duration: 0,
-      });
+      gsap.set(cursor, { x: mouseX, y: mouseY });
     };
 
     window.addEventListener("mousemove", onMouseMove);
 
-    // Lerp loop for ring
     const ticker = gsap.ticker.add(() => {
-      ringX += (mouseX - ringX) * 0.15; // lerp lag
+      ringX += (mouseX - ringX) * 0.15;
       ringY += (mouseY - ringY) * 0.15;
       gsap.set(ring, { x: ringX, y: ringY });
     });
-
-    return () => {
-      window.removeEventListener("mousemove", onMouseMove);
-      gsap.ticker.remove(ticker);
-    };
-  }, []);
-
-  useEffect(() => {
-    const cursor = cursorRef.current;
-    const ring = ringRef.current;
-    if (!cursor || !ring) return;
 
     if (isHovering) {
       if (hoverType === 'link' || hoverType === 'default') {
@@ -66,6 +48,11 @@ export default function CustomCursor() {
       gsap.to(ring, { scale: 1, borderColor: "rgba(255,255,255,0.5)", backgroundColor: "transparent", duration: 0.3 });
       gsap.to(cursor, { scale: 1, height: 8, width: 8, borderRadius: "50%", backgroundColor: "var(--cyan)", duration: 0.3 });
     }
+
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      gsap.ticker.remove(ticker);
+    };
   }, [isHovering, hoverType]);
 
   return (

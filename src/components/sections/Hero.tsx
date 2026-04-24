@@ -19,8 +19,7 @@ export default function Hero() {
       {SITE_DATA.available && (
         <div className="absolute top-[12%] left-[6%] md:left-[10%] flex items-center gap-3">
           <div className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 shadow-lg shadow-green-500/50"></span>
           </div>
           <span className="font-mono text-xs uppercase tracking-widest opacity-80 text-white/90">Available for work</span>
         </div>
@@ -48,17 +47,13 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* BOTTOM LEFT: scroll indicator */}
+      {/* BOTTOM LEFT: scroll indicator - static for performance */}
       <div className="absolute bottom-[8%] left-[6%] md:left-[10%] flex gap-4 items-center">
         <span className="font-mono text-[10px] uppercase tracking-widest opacity-50 rotate-[-90deg] origin-left translate-y-2">
           Scroll
         </span>
         <div className="w-[1px] h-[50px] bg-white/20 overflow-hidden relative translate-x-3">
-          <motion.div 
-            className="w-full h-1/2 bg-[var(--cyan)] absolute top-0"
-            animate={{ top: ["-50%", "100%"] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-          />
+          <div className="w-full h-1/2 bg-[var(--cyan)] absolute top-0" />
         </div>
       </div>
 
