@@ -44,7 +44,7 @@ export default function About() {
           
           <TextReveal 
             text="I build things people screenshot." 
-            className="font-clash text-[10vw] md:text-[64px] leading-[1.05] font-medium mb-8 text-white max-w-[800px]"
+            className="font-clash text-[10vw] md:text-[64px] leading-[1.05] font-medium mb-8 text-white w-full"
           />
           
           <div className="text-white/60 text-base md:text-xl font-cabinet font-normal leading-relaxed max-w-2xl">
@@ -52,7 +52,7 @@ export default function About() {
           </div>
           
           {/* STATS */}
-          <div ref={statsRef} className="flex flex-wrap gap-10 md:gap-16 mt-12 md:mt-20 pt-8 md:pt-12 border-t border-white/5">
+          <div ref={statsRef} className="grid grid-cols-2 gap-6 md:flex md:flex-wrap md:gap-16 mt-12 md:mt-20 pt-8 md:pt-12 border-t border-white/5">
             <div>
               <div className="text-5xl md:text-7xl font-clash font-semibold text-white mb-1 md:mb-3">{SITE_DATA.cgpa}</div>
               <div className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/40">CGPA / 10.0</div>

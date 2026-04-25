@@ -8,8 +8,13 @@ export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const { isHovering, hoverType } = useCursorStore();
+  const mouseIdleTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    // Only run cursor on desktop (pointer: fine)
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    if (isTouch) return;
+
     const cursor = cursorRef.current;
     const ring = ringRef.current;
     if (!cursor || !ring) return;
@@ -18,11 +23,37 @@ export default function CustomCursor() {
     let mouseY = 0;
     let ringX = 0;
     let ringY = 0;
+    let rafId: number | null = null;
 
+    // Throttle mousemove using RAF - update position only once per frame
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      gsap.set(cursor, { x: mouseX, y: mouseY });
+      
+      // Add will-change only on movement
+      if (!cursor.style.willChange) {
+        gsap.set(cursor, { willChange: "transform" });
+        gsap.set(ring, { willChange: "transform" });
+      }
+
+      // Clear previous idle timeout
+      if (mouseIdleTimeoutRef.current) {
+        clearTimeout(mouseIdleTimeoutRef.current);
+      }
+
+      // Throttle updates using RAF
+      if (rafId === null) {
+        rafId = requestAnimationFrame(() => {
+          gsap.set(cursor, { x: mouseX, y: mouseY });
+          rafId = null;
+        });
+      }
+
+      // Set idle timeout to remove will-change after 150ms of no movement
+      mouseIdleTimeoutRef.current = setTimeout(() => {
+        gsap.set(cursor, { willChange: "auto" });
+        gsap.set(ring, { willChange: "auto" });
+      }, 150);
     };
 
     window.addEventListener("mousemove", onMouseMove);
@@ -52,8 +83,15 @@ export default function CustomCursor() {
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
       gsap.ticker.remove(ticker);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      if (mouseIdleTimeoutRef.current) clearTimeout(mouseIdleTimeoutRef.current);
     };
   }, [isHovering, hoverType]);
+
+  // Hide cursor on touch devices
+  if (typeof window !== 'undefined' && window.matchMedia("(pointer: coarse)").matches) {
+    return null;
+  }
 
   return (
     <>

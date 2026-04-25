@@ -6,6 +6,17 @@ import { ScrollTrigger, gsap } from "@/lib/gsap";
 
 export default function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
+    // Only enable Lenis on touch devices (pointer: coarse)
+    // Desktop users get native smooth scroll which is already optimized
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    
+    if (!isTouch) {
+      // Desktop: skip Lenis, let native scroll handle it
+      gsap.ticker.lagSmoothing(0);
+      return;
+    }
+
+    // Touch devices: use Lenis for smooth scrolling
     const lenis = new Lenis({
       lerp: 0.08,
       smoothWheel: true,

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { useGSAP, gsap } from "@/lib/gsap";
+import { useGSAP, gsap, ScrollTrigger } from "@/lib/gsap";
 import BlurIn from "@/components/ui/BlurIn";
 import { SITE_DATA } from "@/lib/data";
 
@@ -23,9 +23,11 @@ export default function Process() {
         scrollTrigger: {
           trigger: containerRef.current,
           pin: true,
-          scrub: 1,
-          start: "center center",
-          end: () => `+=${scrollWrapperRef.current?.scrollWidth}`,
+          anticipatePin: 1,
+          scrub: 0.3,
+          invalidateOnRefresh: true,
+          start: "top top",
+          end: () => `+=${(scrollWrapperRef.current?.scrollWidth ?? 0) - window.innerWidth}`,
         }
       });
 
@@ -47,10 +49,11 @@ export default function Process() {
       }
     });
 
+    setTimeout(() => ScrollTrigger.refresh(), 100);
   }, { scope: containerRef });
 
   return (
-    <section id="process" ref={containerRef} className="relative w-full bg-[var(--bg)] z-10 overflow-hidden lg:h-screen flex flex-col justify-center py-20 lg:py-0 border-t border-white/5">
+    <section id="process" ref={containerRef} className="relative w-full bg-[var(--bg)] z-10 overflow-x-hidden lg:h-screen flex flex-col justify-center py-20 lg:py-0 border-t border-white/5">
       
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 w-full mb-16 lg:absolute lg:top-24 lg:left-0 lg:right-0 z-20">
         <BlurIn>
@@ -114,35 +117,6 @@ export default function Process() {
             )}
           </div>
         ))}
-      </div>
-
-      {/* Education + Stats Section */}
-      <div className="mt-20 pt-12 border-t border-white/5 max-w-[1600px] mx-auto px-6 md:px-12 w-full grid grid-cols-1 md:grid-cols-2 gap-8 z-20">
-        <div className="p-8 rounded-2xl border border-white/10 bg-white/[0.02]">
-          <div className="font-mono text-xs uppercase tracking-widest text-[var(--cyan)] mb-4">// Education</div>
-          <div className="font-clash text-2xl md:text-3xl font-semibold text-white mb-2">B.Tech Computer Science</div>
-          <div className="font-cabinet text-white/50 mb-1">SRMIST Tiruchirappalli</div>
-          <div className="font-mono text-xs text-white/30 mb-6">June 2023 – May 2027</div>
-          <div className="text-5xl font-clash font-semibold text-[var(--cyan)]">9.02<span className="text-xl text-white/30"> / 10.0</span></div>
-          <div className="font-mono text-xs uppercase tracking-widest text-white/40 mt-1">CGPA</div>
-        </div>
-        <div className="p-8 rounded-2xl border border-white/10 bg-white/[0.02]">
-          <div className="font-mono text-xs uppercase tracking-widest text-[var(--cyan)] mb-4">// Quick Stats</div>
-          <div className="flex flex-col gap-4">
-            {[
-              { label: "PRs Merged to Production OS", value: "2" },
-              { label: "Lines of Code Contributed", value: "+1,896" },
-              { label: "Test Pass Rate", value: "100%" },
-              { label: "Lighthouse Performance", value: "95+" },
-              { label: "Attack Block Rate (Compliance)", value: "100%" },
-            ].map(stat => (
-              <div key={stat.label} className="flex justify-between items-center py-2 border-b border-white/5">
-                <span className="font-cabinet text-sm text-white/50">{stat.label}</span>
-                <span className="font-clash text-xl font-semibold text-white">{stat.value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
 
     </section>

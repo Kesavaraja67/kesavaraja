@@ -12,7 +12,7 @@ export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
 
   return (
-    <section ref={containerRef} className="relative w-full h-[100dvh] overflow-hidden">
+    <section ref={containerRef} className="relative w-full h-[100dvh] overflow-hidden md:overflow-visible">
       <Aurora />
 
       {/* TOP LEFT: availability badge */}
@@ -29,7 +29,7 @@ export default function Hero() {
       <div className="absolute top-[45%] md:top-[50%] left-[6%] md:left-[10%] -translate-y-1/2 z-10 w-full md:w-auto">
         <SplitText 
           text={SITE_DATA.name} 
-          className="font-clash text-[13vw] xs:text-[15vw] md:text-[140px] leading-[0.85] font-semibold uppercase text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70"
+          className="font-clash text-[13vw] xs:text-[15vw] md:text-[140px] leading-[0.85] font-semibold uppercase text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70 break-words"
           delay={2.6} 
         />
         

@@ -73,9 +73,20 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jbMono.variable} scroll-smooth`}>
       <head>
+        <link rel="preconnect" href="https://api.fontshare.com" />
         <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=cabinet-grotesk@400,500,700,800&display=swap" rel="stylesheet" />
       </head>
       <body>
+        {/* Scanline overlay - moved to dedicated div with GPU acceleration */}
+        <div 
+          className="fixed inset-0 pointer-events-none z-[9999]"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px)',
+            willChange: 'transform',
+            transform: 'translateZ(0)',
+          }}
+          aria-hidden="true"
+        />
         <Preloader />
         <SmoothScroll>
           <Navbar />

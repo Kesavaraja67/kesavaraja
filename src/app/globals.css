@@ -27,32 +27,15 @@ body {
   font-family: "Cabinet Grotesk", sans-serif;
 }
 
-/* Scanline texture overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(255,255,255,0.012) 2px,
-    rgba(255,255,255,0.012) 4px
-  );
-  pointer-events: none;
-  z-index: 9999;
-}
-
-
-
 /* Aurora animations */
 .aurora-orb {
   position: absolute;
   border-radius: 100%;
-  filter: blur(100px);
   opacity: 0.18;
   will-change: transform;
   transform: translateZ(0);
+  contain: strict;
+  filter: blur(100px);
 }
 
 .aurora-orb--cyan {
@@ -71,6 +54,23 @@ body::before {
   right: -10%;
   background: radial-gradient(ellipse, rgba(123,94,167,0.22) 0%, transparent 70%);
   animation: aurora-drift-b 25s ease-in-out infinite alternate;
+}
+
+/* Desktop optimizations for aurora orbs */
+@media (min-width: 1024px) {
+  .aurora-orb {
+    max-width: 600px;
+    max-height: 800px;
+    filter: blur(60px);
+  }
+
+  .aurora-orb--cyan {
+    animation: aurora-drift-a 50s ease-in-out infinite alternate;
+  }
+
+  .aurora-orb--violet {
+    animation: aurora-drift-b 40s ease-in-out infinite alternate;
+  }
 }
 
 @keyframes aurora-drift-a {
@@ -101,4 +101,20 @@ body::before {
 * {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+/* Mobile touch scrolling optimization */
+@media (max-width: 640px) {
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Ensure no element exceeds viewport width */
+@media (max-width: 640px) {
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
 }

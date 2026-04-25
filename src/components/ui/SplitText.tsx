@@ -23,7 +23,7 @@ export default function SplitText({ text, className = "", delay = 0 }: SplitText
   const words = text.split(" ");
 
   return (
-    <h1 ref={ref} className={`${className} flex flex-wrap overflow-hidden`}>
+    <h1 ref={ref} className={`${className} flex flex-wrap overflow-hidden break-words`}>
       {words.map((word, wordIndex) => (
         <span key={wordIndex} className="inline-block whitespace-nowrap mr-[0.25em]">
           {word.split("").map((char, charIndex) => {
