@@ -475,17 +475,45 @@
                 <p style="font-size: 0.9rem; margin-top: 0.5rem;">Kesavaraja67</p>
             </a>
             
-            <a href="mailto:krkesavaraja67@gmail.com" class="business-card">
+            <div onclick="openContactModal()" class="business-card" style="cursor: pointer;">
                 <i class="fas fa-envelope"></i>
                 <h4>Email</h4>
                 <p style="font-size: 0.9rem; margin-top: 0.5rem;">krkesavaraja67@gmail.com</p>
-            </a>
+            </div>
         </div>
         
         <a href="terminal.html" class="terminal-btn-skeu">
             <i class="fas fa-terminal"></i> Interactive Terminal
         </a>
     </section>
+
+    <!-- Contact Form Modal -->
+    <div class="contact-modal-overlay" id="contactModal">
+        <div class="contact-modal">
+            <button class="close-modal-btn" onclick="closeContactModal()">&times;</button>
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--brass-light); margin-bottom: 1.5rem; text-align: center;">Send a Message</h2>
+            <form action="https://formsubmit.co/krkesavaraja67@gmail.com" method="POST" class="contact-form">
+                <!-- Disable Captcha (Optional but good UX) -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New message from portfolio!">
+                <!-- <input type="hidden" name="_next" value="https://YOUR_NEW_DOMAIN_HERE"> -->
+                
+                <div class="form-group">
+                    <label for="senderName">Name</label>
+                    <input type="text" id="senderName" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="senderEmail">Email</label>
+                    <input type="email" id="senderEmail" name="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="senderMessage">Message</label>
+                    <textarea id="senderMessage" name="message" rows="4" required placeholder="Hi Kesavaraja, let's talk about..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane" style="margin-left: 5px;"></i></button>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -524,6 +552,26 @@
             tab.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
+        });
+
+        // Contact Modal Logic
+        const contactModal = document.getElementById('contactModal');
+        
+        function openContactModal() {
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeContactModal() {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close when clicking outside the modal content
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) {
+                closeContactModal();
+            }
         });
     </script>
 </body>
