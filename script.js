@@ -1900,10 +1900,21 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollWheelZoom: false
     });
 
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 16
-    }).addTo(map);
+    // Render a completely label-free, solid-color vector map using GeoJSON
+    fetch('https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson')
+      .then(response => response.json())
+      .then(data => {
+        L.geoJSON(data, {
+          style: {
+            fillColor: '#8B5A2B', // Antique brown landmass
+            weight: 1,
+            opacity: 1,
+            color: '#3B1F0A', // Dark leather border
+            fillOpacity: 0.85
+          }
+        }).addTo(map);
+      })
+      .catch(err => console.error('Error loading map vector data:', err));
 
     const brassPin = L.divIcon({
       className: 'brass-map-pin',

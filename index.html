@@ -113,7 +113,6 @@
                 
                 <img src="image/kesavaraja.png" alt="Kesavaraja M" class="portrait">
                 
-                <div class="frame-nameplate">Kesavaraja M</div>
                 <div class="deco-note"><div class="thumbtack"></div>Full-Stack Dev</div>
                 <svg class="deco-compass" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="50" cy="50" r="45" stroke="#C9A040" stroke-width="2"/>
@@ -492,11 +491,12 @@
         <div class="contact-modal">
             <button class="close-modal-btn" onclick="closeContactModal()">&times;</button>
             <h2 style="font-family: 'Playfair Display', serif; color: var(--brass-light); margin-bottom: 1.5rem; text-align: center;">Send a Message</h2>
-            <form action="https://formsubmit.co/krkesavaraja67@gmail.com" method="POST" class="contact-form">
-                <!-- Disable Captcha (Optional but good UX) -->
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_subject" value="New message from portfolio!">
-                <!-- <input type="hidden" name="_next" value="https://YOUR_NEW_DOMAIN_HERE"> -->
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="99f1f743-4d59-4f2a-9b05-5f9b53f32550">
+                <input type="hidden" name="subject" value="New message from portfolio!">
+                <!-- Optional: redirect to a custom page or let it use default -->
+                <!-- <input type="hidden" name="redirect" value="https://web3forms.com/success"> -->
                 
                 <div class="form-group">
                     <label for="senderName">Name</label>
