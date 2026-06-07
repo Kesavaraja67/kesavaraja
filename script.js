@@ -217,6 +217,7 @@ class TerminalResume {
       "calc",
       "calculate",
       "pdf",
+      "resume",
     ];
 
     // Find matching commands
@@ -487,6 +488,9 @@ class TerminalResume {
       case "pdf":
         this.generatePDF();
         break;
+      case "resume":
+        this.showResumes(outputElement);
+        break;
       case "linkedin-cover":
         this.generateLinkedInCover(outputElement);
         break;
@@ -522,12 +526,12 @@ class TerminalResume {
   }
 
   printWelcomeMessage(outputElement = this.output) {
-    const asciiArt = `██╗  ██╗███████╗███████╗ █████╗ ██╗   ██╗ █████╗
+    const asciiArt = `<div class="ascii-art">██╗  ██╗███████╗███████╗ █████╗ ██╗   ██╗ █████╗
 ██║ ██╔╝██╔════╝██╔════╝██╔══██╗██║   ██║██╔══██╗
 █████╔╝ █████╗  ███████╗███████║██║   ██║███████║
 ██╔═██╗ ██╔══╝  ╚════██║██╔══██║╚██╗ ██╔╝██╔══██║
 ██║  ██╗███████╗███████║██║  ██║ ╚████╔╝ ██║  ██║
-╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝`;
+╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝</div>`;
 
     const divider = "─────────────────────────────────────────────────";
 
@@ -604,6 +608,9 @@ class TerminalResume {
       this.wrapWithColor("• pdf", "#98fb98") +
       "       " +
       this.wrapWithColor("Download resume as PDF\n", "#ffffff") +
+      this.wrapWithColor("• resume", "#98fb98") +
+      "    " +
+      this.wrapWithColor("Download SDE or Full-Stack resumes\n", "#ffffff") +
       this.wrapWithColor("• linkedin-cover", "#98fb98") +
       " " +
       this.wrapWithColor("Generate LinkedIn cover image\n", "#ffffff");
@@ -648,6 +655,23 @@ ${this.wrapWithColor("Passionate Computer Science undergraduate at SRMIST (CGPA 
     const aboutDiv = document.createElement("div");
     aboutDiv.innerHTML = about;
     outputElement.appendChild(aboutDiv);
+    this.scrollToBottom(outputElement.closest(".terminal-content"));
+  }
+
+  showResumes(outputElement = this.output) {
+    const resumeText = `<span style="color: #33FF33; font-weight: bold;">📄 Available Resumes</span>
+
+${this.wrapWithColor("Two versions of my resume are available for download:", "#33FF33")}
+
+1. ${this.wrapWithColor("SDE Version (Software Engineering Focus)", "#E8C96A")}
+   <a href="resume/KESAVARAJA-SDE.pdf" target="_blank" style="color: #A8D8D8; text-decoration: underline;">[Download SDE Resume PDF]</a>
+
+2. ${this.wrapWithColor("Full-Stack Version (Web & Cloud Focus)", "#E8C96A")}
+   <a href="resume/KESAVARAJA-FULL-STACK.pdf" target="_blank" style="color: #A8D8D8; text-decoration: underline;">[Download Full-Stack Resume PDF]</a>`;
+
+    const resumeDiv = document.createElement("div");
+    resumeDiv.innerHTML = resumeText;
+    outputElement.appendChild(resumeDiv);
     this.scrollToBottom(outputElement.closest(".terminal-content"));
   }
 

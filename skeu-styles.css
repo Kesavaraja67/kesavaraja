@@ -501,6 +501,11 @@ a {
   box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 8px 20px rgba(0,0,0,0.3);
   transform: rotate(-1.5deg);
   padding: 10px;
+  transition: all var(--transition-bounce);
+}
+
+.oil-painting-frame:hover {
+  transform: rotate(0deg);
 }
 
 .oil-painting-frame img.portrait {
@@ -1547,6 +1552,202 @@ mark {
   background-image: 
     repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(139, 105, 20, 0.03) 2px, rgba(139, 105, 20, 0.03) 4px),
     radial-gradient(circle at center, transparent 0%, rgba(92, 51, 23, 0.1) 100%) !important;
+}
+
+/* ==========================================================================
+   21. Resume Download Features
+   ========================================================================== */
+.resume-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.resume-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 10px;
+  background: var(--bg-leather-dark);
+  border: 2px solid var(--brass-mid);
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.5), inset 0 2px 5px rgba(255,255,255,0.1);
+  min-width: 230px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.resume-dropdown-container:hover .resume-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.resume-dropdown .dropdown-item {
+  display: block;
+  padding: 12px 16px;
+  color: var(--brass-light);
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+  transition: background 0.2s;
+}
+
+.resume-dropdown .dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.resume-dropdown .dropdown-item:hover {
+  background: rgba(201, 160, 64, 0.1);
+  color: var(--brass-shine);
+}
+
+.resume-dropdown .dropdown-item i {
+  margin-right: 10px;
+  width: 16px;
+  text-align: center;
+}
+
+/* Manila Folder Component */
+.resume-folder-wrapper {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.manila-folder {
+  background: #E8DCC4;
+  border-radius: 4px 12px 4px 4px;
+  box-shadow: 
+    inset 0 0 20px rgba(139,105,60,0.1),
+    0 8px 16px rgba(0,0,0,0.2),
+    0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  border: 1px solid #D4C4A8;
+}
+
+.manila-folder::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(139, 105, 60, 0.05) 2px, rgba(139, 105, 60, 0.05) 4px);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.folder-tab-top {
+  position: absolute;
+  top: -32px;
+  left: 20px;
+  background: #E8DCC4;
+  padding: 6px 20px;
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--ink-dark);
+  border-radius: 8px 8px 0 0;
+  border: 1px solid #D4C4A8;
+  border-bottom: none;
+  box-shadow: inset 0 2px 5px rgba(255,255,255,0.5);
+  z-index: 0;
+}
+
+.folder-content-inner {
+  padding: 2.5rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.folder-instruction {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--ink-dark);
+  opacity: 0.8;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.resume-files-grid {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.resume-file-card {
+  background: var(--bg-paper);
+  border: 1px solid rgba(139,105,60,0.3);
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--ink-dark);
+  width: 200px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-file-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: var(--brass-mid);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.resume-file-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  border-color: var(--brass-mid);
+}
+
+.resume-file-card:hover::after {
+  transform: scaleX(1);
+}
+
+.resume-file-card .file-info h4 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+}
+
+.resume-file-card .file-info span {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.download-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: var(--bg-wood-mid);
+  color: var(--brass-light);
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s ease;
+}
+
+.resume-file-card:hover .download-badge {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* ==========================================================================

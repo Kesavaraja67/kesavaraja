@@ -278,4 +278,10 @@ body {
   .crt-stand { width: 200px; }
   .crt-base { width: 90%; max-width: 300px; }
   .terminal-content { padding: 10px; font-size: 0.85rem; }
+  .ascii-art { font-size: 0.45rem; line-height: 1.2; }
+}
+
+.ascii-art {
+  font-family: monospace;
+  white-space: pre;
 }
