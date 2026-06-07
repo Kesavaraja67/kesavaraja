@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kesavaraja M | Full-Stack Developer | Portfolio</title>
+    
+    <meta name="description" content="Passionate Computer Science undergraduate at SRMIST (CGPA 9.03) building production-grade software across the full stack.">
+    
+    <meta property="og:title" content="Kesavaraja M | Full-Stack Developer | Portfolio">
+    <meta property="og:description" content="Passionate Computer Science undergraduate at SRMIST (CGPA 9.03) building production-grade software across the full stack.">
+    <meta property="og:image" content="image/social-cover.png">
+    <meta property="og:url" content="https://kesavaraja.vercel.app">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <link rel="stylesheet" href="skeu-styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kesavaraja M",
+      "jobTitle": "Full-Stack Developer",
+      "url": "https://kesavaraja.vercel.app",
+      "sameAs": [
+        "https://github.com/Kesavaraja67",
+        "https://linkedin.com/in/Kesavaraja-m"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tiruchirappalli",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "India"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Vault Loading Screen -->
+    <div class="vault-loader">
+        <div class="vault-door">
+            <div class="vault-wheel">
+                <div class="vault-wheel-center"></div>
+            </div>
+        </div>
+        <div class="vault-inside">
+            <div class="nameplate">KM</div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brass-nameplate">KM</div>
+            </div>
+            <button class="nav-toggle">
+                <span class="hamburger-icon"></span>
+            </button>
+            <div class="nav-links">
+                <a href="#hero" class="nav-tab active">Home</a>
+                <a href="#about" class="nav-tab">About</a>
+                <a href="#experience" class="nav-tab">Experience</a>
+                <a href="#skills" class="nav-tab">Skills</a>
+                <a href="#contact" class="nav-tab">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="sticky-note">Hi there! 👋</div>
+            <h1>I'm Kesavaraja M.</h1>
+            <p class="hero-bio">
+                B.Tech CSE student at SRMIST (CGPA 9.03), building production-grade full-stack and backend systems. Shipped a SaaS PWA achieving 95+ Lighthouse score, engineered microservices with Java Spring Boot & Docker, and contributed +1,896 lines of merged PRs to an open-source AI Linux OS. Passionate about clean architecture, open-source, and shipping things that actually matter.
+            </p>
+            
+            <div class="hero-actions">
+                <div class="social-press-buttons">
+                    <a href="https://github.com/Kesavaraja67" target="_blank" class="press-button" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/Kesavaraja-m" target="_blank" class="press-button" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:krkesavaraja67@gmail.com" class="press-button" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+                
+                <a href="#contact" class="cta-button">Get in Touch</a>
+                
+                <div class="wax-seal-container">
+                    <span class="wax-seal-note">Say Hello &rarr;</span>
+                    <a href="mailto:krkesavaraja67@gmail.com">
+                        <img src="image/caffe-icon.png" alt="Say Hello" class="wax-seal">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image-container">
+            <div class="oil-painting-frame">
+                <div class="frame-rosette rosette-tl"></div>
+                <div class="frame-rosette rosette-tr"></div>
+                <div class="frame-rosette rosette-bl"></div>
+                <div class="frame-rosette rosette-br"></div>
+                
+                <img src="image/kesavaraja.png" alt="Kesavaraja M" class="portrait">
+                
+                <div class="frame-nameplate">Kesavaraja M</div>
+                <div class="deco-note"><div class="thumbtack"></div>Full-Stack Dev</div>
+                <svg class="deco-compass" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="#C9A040" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="38" stroke="#8B6914" stroke-width="1"/>
+                    <path d="M50 5 L60 40 L95 50 L60 60 L50 95 L40 60 L5 50 L40 40 Z" fill="url(#brass-grad)" stroke="#1A1008" stroke-width="1"/>
+                    <defs>
+                        <linearGradient id="brass-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#F5E098"/>
+                            <stop offset="100%" stop-color="#8B6914"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Badges -->
+    <div class="tech-badges-strip">
+        <span class="tech-badge-pill">Java</span>
+        <span class="tech-badge-pill">TypeScript</span>
+        <span class="tech-badge-pill">Python</span>
+        <span class="tech-badge-pill">JavaScript</span>
+        <span class="tech-badge-pill">React</span>
+        <span class="tech-badge-pill">Next.js 15</span>
+        <span class="tech-badge-pill">Spring Boot</span>
+        <span class="tech-badge-pill">FastAPI</span>
+        <span class="tech-badge-pill">PostgreSQL</span>
+        <span class="tech-badge-pill">Redis</span>
+        <span class="tech-badge-pill">Docker</span>
+        <span class="tech-badge-pill">GitHub Actions</span>
+    </div>
+
+    <!-- Divider -->
+    <div class="brass-rule"></div>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">About</h2>
+        
+        <div class="journal-card">
+            <div class="journal-spine"></div>
+            <div class="journal-content">
+                <p>
+                    Passionate Computer Science undergraduate at SRMIST (<mark>CGPA 9.03</mark>) building production-grade software across the full stack. I've shipped a SaaS PWA with Razorpay payments achieving <mark>95+ Lighthouse scores</mark>, engineered microservices with Java Spring Boot & Docker, and contributed <mark>+1,896 lines of merged PRs</mark> to open-source AI Linux projects. I bring Java + TypeScript depth, open-source credibility, and a relentless drive to build systems that actually matter.
+                </p>
+                <div class="page-curl"></div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="index-card">
+                <div class="stat-number">9.03</div>
+                <div class="stat-label">CGPA</div>
+            </div>
+            <div class="index-card">
+                <div class="stat-number">+1,896</div>
+                <div class="stat-label">Lines Merged</div>
+            </div>
+            <div class="index-card">
+                <div class="stat-number">95+</div>
+                <div class="stat-label">Lighthouse</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="brass-rule"></div>
+
+    <!-- Experience / Journey Section -->
+    <section id="experience" class="section" style="max-width: 1200px;">
+        <h2 class="section-title">My Journey</h2>
+        
+        <div class="container">
+            <div class="timeline-column" style="background: repeating-radial-gradient(circle at center, rgba(139,105,60,0.05) 0, rgba(139,105,60,0.05) 2px, transparent 2px, transparent 10px);">
+                
+                <div class="pinned-card">
+                    <div class="pushpin pin-teal"></div>
+                    <h3 class="card-title">Full-Stack Developer — 75 Club (SaaS PWA)</h3>
+                    <div class="card-date">2024–Present</div>
+                    <p class="card-desc">Architected and shipped a full-stack SaaS PWA end-to-end — system design, schema normalization, frontend deployment — serving concurrent multi-tenant users at 95+ Lighthouse score.</p>
+                    <div class="card-location"><i class="fas fa-map-marker-alt"></i> Vercel / Remote</div>
+                </div>
+
+                <div class="pinned-card">
+                    <div class="pushpin pin-brass"></div>
+                    <h3 class="card-title">Backend Engineer — Compliance Sentinel</h3>
+                    <div class="card-date">2024</div>
+                    <p class="card-desc">Developed a production-ready RESTful microservice with 3-layer backend defense architecture — 100% attack block rate, sub-millisecond API response latency.</p>
+                    <div class="card-location"><i class="fas fa-map-marker-alt"></i> Remote</div>
+                </div>
+
+                <div class="pinned-card">
+                    <div class="pushpin pin-red"></div>
+                    <h3 class="card-title">Open Source Contributor — Agentic AI Linux OS</h3>
+                    <div class="card-date">2024</div>
+                    <p class="card-desc">Merged PR #521 and #542 into cxlinux-ai/cx-core implementing full System Role Management and Docker permission fixes (+1,896 lines merged).</p>
+                    <div class="card-location"><i class="fas fa-map-marker-alt"></i> cxlinux-ai/cx-core</div>
+                </div>
+
+                <div class="pinned-card">
+                    <div class="pushpin pin-teal"></div>
+                    <h3 class="card-title">AI / Computer Vision — NextGen Traffic Insights</h3>
+                    <div class="card-date">2024</div>
+                    <p class="card-desc">Implemented priority queues and spatial hash maps to optimize a real-time vehicle detection pipeline classifying 52+ vehicles/session at stable 30 FPS.</p>
+                    <div class="card-location"><i class="fas fa-map-marker-alt"></i> Remote</div>
+                </div>
+
+            </div>
+            
+            <div class="map-column">
+                <div class="map-frame">
+                    <div id="map"></div>
+                    <div class="map-overlay-vignette"></div>
+                    <img src="image/pirat.png" alt="Explorer" class="explorer-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="brass-rule"></div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Skills & Expertise</h2>
+        
+        <div class="skills-grid">
+            <div class="folder-card">
+                <div class="folder-tab tab-brass">Languages</div>
+                <div class="folder-body">
+                    <span class="typewriter-key">Java 21</span>
+                    <span class="typewriter-key">TypeScript</span>
+                    <span class="typewriter-key">Python</span>
+                    <span class="typewriter-key">JavaScript</span>
+                    <span class="typewriter-key">SQL</span>
+                    <span class="typewriter-key">HTML/CSS</span>
+                </div>
+            </div>
+
+            <div class="folder-card">
+                <div class="folder-tab tab-teal">Frontend</div>
+                <div class="folder-body">
+                    <span class="typewriter-key">React.js</span>
+                    <span class="typewriter-key">Next.js 15</span>
+                    <span class="typewriter-key">Tailwind CSS</span>
+                    <span class="typewriter-key">PWA</span>
+                    <span class="typewriter-key">TypeScript (Frontend)</span>
+                </div>
+            </div>
+
+            <div class="folder-card">
+                <div class="folder-tab tab-deep-teal">Backend</div>
+                <div class="folder-body">
+                    <span class="typewriter-key">Spring Boot</span>
+                    <span class="typewriter-key">FastAPI</span>
+                    <span class="typewriter-key">Node.js</span>
+                    <span class="typewriter-key">REST APIs</span>
+                    <span class="typewriter-key">JWT Auth</span>
+                    <span class="typewriter-key">Microservices Architecture</span>
+                </div>
+            </div>
+
+            <div class="folder-card">
+                <div class="folder-tab tab-green">Databases</div>
+                <div class="folder-body">
+                    <span class="typewriter-key">PostgreSQL</span>
+                    <span class="typewriter-key">MySQL</span>
+                    <span class="typewriter-key">Redis</span>
+                    <span class="typewriter-key">MongoDB</span>
+                    <span class="typewriter-key">SQLite</span>
+                    <span class="typewriter-key">Supabase</span>
+                </div>
+            </div>
+
+            <div class="folder-card">
+                <div class="folder-tab tab-leather">DevOps & Tools</div>
+                <div class="folder-body">
+                    <span class="typewriter-key">Docker</span>
+                    <span class="typewriter-key">Git</span>
+                    <span class="typewriter-key">GitHub Actions</span>
+                    <span class="typewriter-key">Vercel</span>
+                    <span class="typewriter-key">Railway</span>
+                    <span class="typewriter-key">Linux</span>
+                    <span class="typewriter-key">SonarQube</span>
+                </div>
+            </div>
+
+            <div class="folder-card">
+                <div class="folder-tab tab-red">AI / ML</div>
+                <div class="folder-body">
+                    <span class="typewriter-key">YOLOv8</span>
+                    <span class="typewriter-key">OpenCV</span>
+                    <span class="typewriter-key">BFS/A*</span>
+                    <span class="typewriter-key">OCR Pipelines</span>
+                    <span class="typewriter-key">TensorFlow/CNN</span>
+                    <span class="typewriter-key">Streamlit</span>
+                </div>
+            </div>
+
+            <div class="folder-card">
+                <div class="folder-tab tab-brass-dark">Practices</div>
+                <div class="folder-body">
+                    <span class="typewriter-key">OOP</span>
+                    <span class="typewriter-key">System Design</span>
+                    <span class="typewriter-key">Unit Testing</span>
+                    <span class="typewriter-key">Clean Code</span>
+                    <span class="typewriter-key">Agile</span>
+                    <span class="typewriter-key">Code Review</span>
+                    <span class="typewriter-key">Technical Documentation</span>
+                </div>
+            </div>
+
+            <div class="folder-card">
+                <div class="folder-tab tab-leather">IDE's & Tools</div>
+                <div class="folder-body">
+                    <span class="typewriter-key">VS Code</span>
+                    <span class="typewriter-key">Antigravity</span>
+                    <span class="typewriter-key">Cursor</span>
+                    <span class="typewriter-key">IntelliJ IDEA</span>
+                    <span class="typewriter-key">Postman</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="brass-rule"></div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title">Featured Projects</h2>
+        
+        <div class="projects-grid">
+            <div class="book-card" onclick="window.open('https://75-club.vercel.app', '_blank')" style="cursor: pointer;">
+                <div class="book-spine"></div>
+                <div class="book-corner book-corner-tr"></div>
+                <div class="book-corner book-corner-br"></div>
+                <a href="https://github.com/Kesavaraja67/75-club" target="_blank" class="bookmark-ribbon" onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                <h3 class="book-title">75 Club — Full-Stack SaaS PWA</h3>
+                <p class="book-desc">Architected and shipped a full-stack SaaS PWA end-to-end — system design, schema normalization, frontend deployment — serving concurrent multi-tenant users at 95+ Lighthouse score.</p>
+                <div class="book-tags">Next.js 15 · TypeScript · FastAPI · PostgreSQL · Razorpay</div>
+            </div>
+
+            <div class="book-card" onclick="window.open('https://ratelimiterui.krkesavaraja67.workers.dev', '_blank')" style="cursor: pointer;">
+                <div class="book-spine"></div>
+                <div class="book-corner book-corner-tr"></div>
+                <div class="book-corner book-corner-br"></div>
+                <a href="https://github.com/Kesavaraja67/ratelimiter" target="_blank" class="bookmark-ribbon" onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                <h3 class="book-title">API Rate Limiter</h3>
+                <p class="book-desc">Architected a production API rate limiting service in Java Spring Boot implementing sliding window algorithm with Redis sorted sets at O(log n) complexity.</p>
+                <div class="book-tags">Java 21 · Spring Boot · Redis · MySQL · Spring Security</div>
+            </div>
+
+            <div class="book-card" onclick="window.open('https://github.com/Kesavaraja67/compliance-sentinel-mcp', '_blank')" style="cursor: pointer;">
+                <div class="book-spine"></div>
+                <div class="book-corner book-corner-tr"></div>
+                <div class="book-corner book-corner-br"></div>
+                <a href="https://github.com/Kesavaraja67/compliance-sentinel-mcp" target="_blank" class="bookmark-ribbon" onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                <h3 class="book-title">Compliance Sentinel</h3>
+                <p class="book-desc">Developed a production-ready RESTful microservice with 3-layer backend defense architecture — 100% attack block rate, sub-millisecond API response latency.</p>
+                <div class="book-tags">Python · FastAPI · Docker · SQLite · Pytest</div>
+            </div>
+
+            <div class="book-card" onclick="window.open('https://github.com/Kesavaraja67/NextGen-Traffic-Insights', '_blank')" style="cursor: pointer;">
+                <div class="book-spine"></div>
+                <div class="book-corner book-corner-tr"></div>
+                <div class="book-corner book-corner-br"></div>
+                <a href="https://github.com/Kesavaraja67/NextGen-Traffic-Insights" target="_blank" class="bookmark-ribbon" onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                <h3 class="book-title">NextGen Traffic Insights</h3>
+                <p class="book-desc">Implemented priority queues and spatial hash maps to optimize a real-time vehicle detection pipeline classifying 52+ vehicles/session at stable 30 FPS.</p>
+                <div class="book-tags">Python · YOLOv8 · OpenCV · Spatial Hash Maps</div>
+            </div>
+
+            <div class="book-card" onclick="window.open('https://github.com/Kesavaraja67/Cube-Buddy', '_blank')" style="cursor: pointer;">
+                <div class="book-spine"></div>
+                <div class="book-corner book-corner-tr"></div>
+                <div class="book-corner book-corner-br"></div>
+                <a href="https://github.com/Kesavaraja67/Cube-Buddy" target="_blank" class="bookmark-ribbon" onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                <h3 class="book-title">Cube Buddy</h3>
+                <p class="book-desc">Built a real-time Rubik's cube solver in Java using BFS/A* graph traversal with 95% detection accuracy from live camera input.</p>
+                <div class="book-tags">Java · Python · OpenCV · BFS · A* Search</div>
+            </div>
+
+            <div class="book-card" onclick="window.open('https://github.com/Kesavaraja67/Echo-Mind-Framework', '_blank')" style="cursor: pointer;">
+                <div class="book-spine"></div>
+                <div class="book-corner book-corner-tr"></div>
+                <div class="book-corner book-corner-br"></div>
+                <a href="https://github.com/Kesavaraja67/Echo-Mind-Framework" target="_blank" class="bookmark-ribbon" onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                <h3 class="book-title">Echo Mind Framework</h3>
+                <p class="book-desc">Designed a modular AI framework simulating memory persistence, contextual reasoning, and adaptive decision-making with pluggable FastAPI components.</p>
+                <div class="book-tags">Python · FastAPI · HTML/CSS/JS</div>
+            </div>
+        </div>
+
+        <div class="certificate-panel">
+            <div class="certificate-inner">
+                <div class="stamp-heading">Open Source Contributions</div>
+                <div class="badges-container">
+                    <div class="merit-badge" onclick="window.open('https://github.com/cxlinux-ai/cx-core/pull/521', '_blank')" style="cursor: pointer;">
+                        <h4>PR #521</h4>
+                        <p><strong>cxlinux-ai/cx-core</strong></p>
+                        <p>+582 lines merged</p>
+                        <p>Docker Permission Fixer</p>
+                    </div>
+                    <div class="merit-badge" onclick="window.open('https://github.com/cxlinux-ai/cx-core/pull/542', '_blank')" style="cursor: pointer;">
+                        <h4>PR #542</h4>
+                        <p><strong>cxlinux-ai/cx-core</strong></p>
+                        <p>+1,314 lines merged</p>
+                        <p>System Role Management</p>
+                    </div>
+                </div>
+                <div class="metric-strip">
+                    2 PRs Merged · +1,896 Lines · 26 Tests Passing · SonarQube ✓
+                </div>
+            </div>
+        </div>
+
+        <div class="edu-lang-container">
+            <div class="diploma-card">
+                <div class="diploma-watermark">SRMIST SRMIST SRMIST</div>
+                <h3>B.Tech in Computer Science &amp; Engineering (AI &amp; ML)</h3>
+                <h4>SRMIST, Tiruchirappalli</h4>
+                <div class="cgpa-plate">CGPA: 9.03 / 10.0</div>
+                <div style="margin-top: 1rem; font-family: 'Lora', serif; font-size: 0.9rem;"><i class="fas fa-map-marker-alt"></i> Tiruchirappalli, India</div>
+                <div class="brass-seal">2023<br>2027</div>
+            </div>
+
+            <div class="notebook-card">
+                <div class="notebook-pages">
+                    <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 2rem; border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 0.5rem;">Languages</h3>
+                    <div class="lang-item">
+                        <span>Tamil</span>
+                        <span class="stars">★★★</span>
+                    </div>
+                    <div class="lang-item">
+                        <span>English</span>
+                        <span class="stars">★★★</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="brass-rule"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Get In Touch</h2>
+        <p style="text-align: center; font-style: italic; font-size: 1.2rem; margin-top: -1.5rem;">Let's build something amazing together</p>
+        
+        <div class="contact-cards-container">
+            <a href="https://linkedin.com/in/Kesavaraja-m" target="_blank" class="business-card">
+                <i class="fab fa-linkedin"></i>
+                <h4>LinkedIn</h4>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Kesavaraja-m</p>
+            </a>
+            
+            <a href="https://github.com/Kesavaraja67" target="_blank" class="business-card">
+                <i class="fab fa-github"></i>
+                <h4>GitHub</h4>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Kesavaraja67</p>
+            </a>
+            
+            <a href="mailto:krkesavaraja67@gmail.com" class="business-card">
+                <i class="fas fa-envelope"></i>
+                <h4>Email</h4>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">krkesavaraja67@gmail.com</p>
+            </a>
+        </div>
+        
+        <a href="terminal.html" class="terminal-btn-skeu">
+            <i class="fas fa-terminal"></i> Interactive Terminal
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="brass-nameplate" style="font-size: 1.2rem;">KESAVARAJA M <br> <span style="font-size: 0.8rem; font-family: 'Lora', serif; font-variant: small-caps; letter-spacing: 0;">Full-Stack Developer</span></div>
+            <div class="footer-nav">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-press-buttons" style="gap: 0.5rem;">
+                <a href="https://github.com/Kesavaraja67" target="_blank" class="press-button" style="width: 40px; height: 40px; font-size: 1.2rem;"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/Kesavaraja-m" target="_blank" class="press-button" style="width: 40px; height: 40px; font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Kesavaraja M</span>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Hamburger Menu Logic
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const navTabs = document.querySelectorAll('.nav-tab');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        navTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

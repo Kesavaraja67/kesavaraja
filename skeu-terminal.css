@@ -1,0 +1,281 @@
+/* skeu-terminal.css - CRT Monitor Terminal Styles */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: 
+    repeating-linear-gradient(90deg, #1C0F05 0px, #1C0F05 2px, #3D2108 2px, #3D2108 4px),
+    linear-gradient(180deg, #3D2108, #1C0F05);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Lora', serif;
+}
+
+.crt-wrapper {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.crt-monitor {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  background: #2A2A2A;
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 
+    inset 0 4px 10px rgba(255,255,255,0.1),
+    inset 0 -10px 20px rgba(0,0,0,0.8),
+    0 20px 40px rgba(0,0,0,0.6),
+    0 40px 80px rgba(0,0,0,0.4);
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 4px);
+  z-index: 2;
+}
+
+.crt-screen-container {
+  width: 100%;
+  height: 100%;
+  background: #0A0E08;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    inset 0 0 20px rgba(0,0,0,0.8),
+    0 0 0 2px #111,
+    0 0 0 4px #444,
+    inset 0 0 80px rgba(0,255,70,0.04);
+}
+
+.crt-scanlines {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: repeating-linear-gradient(transparent 0px, transparent 3px, rgba(0,0,0,0.15) 3px, rgba(0,0,0,0.15) 4px);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.crt-glare {
+  position: absolute;
+  top: -20%; left: -10%;
+  width: 60%; height: 60%;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, transparent 60%);
+  transform: rotate(-15deg);
+  pointer-events: none;
+  z-index: 11;
+}
+
+.crt-power-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 40px;
+  width: 12px;
+  height: 12px;
+  background: #33FF33;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #33FF33, inset 0 0 5px rgba(255,255,255,0.8);
+  border: 1px solid #111;
+}
+
+.crt-stand {
+  width: 300px;
+  height: 80px;
+  background: #2A2A2A;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  margin-top: -20px;
+  z-index: 1;
+  box-shadow: inset 0 -10px 20px rgba(0,0,0,0.8), 0 20px 40px rgba(0,0,0,0.6);
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 4px);
+}
+
+.crt-base {
+  width: 400px;
+  height: 20px;
+  background: #111;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+  z-index: 1;
+}
+
+.terminal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 5;
+}
+
+.terminal-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.terminal-header {
+  height: 30px;
+  background: #1A1A1A;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  border-bottom: 1px solid #333;
+}
+
+.mac-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.mac-btn {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.4), inset 0 -1px 2px rgba(0,0,0,0.4);
+}
+.mac-close { background: #FF5F56; }
+.mac-min { background: #FFBD2E; }
+.mac-max { background: #27C93F; }
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  color: #33FF33;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.terminal-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  font-family: 'Space Mono', monospace;
+  color: #33FF33;
+  font-size: 0.95rem;
+  text-shadow: 0 0 5px rgba(51,255,51,0.5);
+  display: flex;
+  flex-direction: column;
+  white-space: pre-wrap;
+}
+
+.terminal-content::-webkit-scrollbar {
+  width: 10px;
+}
+.terminal-content::-webkit-scrollbar-track {
+  background: #0A0E08;
+  border-left: 1px solid #1A1A1A;
+}
+.terminal-content::-webkit-scrollbar-thumb {
+  background: #33FF33;
+  opacity: 0.5;
+}
+
+.terminal-output {
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  color: #88FF88;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.command-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #33FF33;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.95rem;
+  text-shadow: 0 0 5px rgba(51,255,51,0.5);
+  outline: none;
+}
+
+.terminal-footer {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.key-cap {
+  padding: 10px 20px;
+  background: #E8E4D9;
+  border-radius: 8px;
+  color: #1A1008;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 
+    inset 0 4px 0 rgba(255,255,255,0.8),
+    inset 0 -4px 0 rgba(0,0,0,0.2),
+    0 4px 8px rgba(0,0,0,0.4);
+  border: 1px solid #C4BDB0;
+  transition: all 0.1s;
+}
+
+.key-cap:active {
+  transform: translateY(4px);
+  box-shadow: 
+    inset 0 2px 0 rgba(255,255,255,0.8),
+    inset 0 -2px 0 rgba(0,0,0,0.2),
+    0 0 2px rgba(0,0,0,0.4);
+}
+
+/* Modal styles overrides for CRT */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #0A0E08;
+  border: 2px solid #33FF33;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 30px rgba(51,255,51,0.2);
+  color: #33FF33;
+  font-family: 'Space Mono', monospace;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px; right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #33FF33;
+}
+
+@media (max-width: 768px) {
+  .crt-monitor { height: 400px; padding: 20px; }
+  .crt-stand { width: 200px; }
+  .crt-base { width: 90%; max-width: 300px; }
+  .terminal-content { padding: 10px; font-size: 0.85rem; }
+}
