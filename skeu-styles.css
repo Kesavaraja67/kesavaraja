@@ -56,6 +56,77 @@
   --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
+body.dark-theme {
+  /* Backgrounds */
+  --bg-parchment: #25201A;
+  --bg-paper: #302A24;
+  --bg-leather-dark: #1A0D04;
+  --bg-leather-mid: #251205;
+  --bg-leather-light: #3D2210;
+  --bg-wood-dark: #0F0802;
+  --bg-wood-mid: #1C0F05;
+  --bg-wood-light: #381E0F;
+
+  /* Accents */
+  --brass-dark: #6B4E0B;
+  --brass-mid: #A07F30;
+  --brass-light: #B89645;
+  --brass-shine: #D4B66A;
+  --teal-deep: #082424;
+  --teal-mid: #104242;
+  --teal-light: #1A6666;
+  --teal-shine: #669999;
+
+  /* Text - inverted for dark mode */
+  --ink-dark: #F5E8D8;
+  --ink-mid: #D0C2B0;
+  --ink-light: #A89888;
+  --ink-faded: #807060;
+
+  /* Shadows - deeper */
+  --shadow-deep: rgba(0, 0, 0, 0.8);
+  --shadow-mid: rgba(0, 0, 0, 0.6);
+  --shadow-soft: rgba(0, 0, 0, 0.4);
+  --shadow-ambient: rgba(0, 0, 0, 0.25);
+  --highlight-top: rgba(255, 255, 255, 0.1);
+  --highlight-bright: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-theme .oil-painting-frame img.portrait {
+  filter: brightness(0.8) sepia(0.3) contrast(1.15);
+}
+
+body.dark-theme .journal-card {
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(200, 200, 200, 0.03) 27px, rgba(200, 200, 200, 0.03) 28px),
+    linear-gradient(135deg, var(--bg-paper) 0%, #2A241F 50%, var(--bg-paper) 100%);
+}
+
+body.dark-theme .page-curl {
+  background: linear-gradient(135deg, #2A241F 0%, var(--bg-paper) 50%, transparent 50%);
+}
+
+body.dark-theme .deco-note,
+body.dark-theme .index-card {
+  background: #362D26;
+  border-top-color: var(--brass-mid);
+}
+
+body.dark-theme .sticky-note {
+  background: #C4A747;
+  color: #1A1008;
+}
+
+body.dark-theme .tech-badge-pill {
+  border-color: var(--brass-dark);
+}
+
+body.dark-theme .pinned-card {
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(200, 200, 200, 0.02) 27px, rgba(200, 200, 200, 0.02) 28px);
+}
+
+
 /* ==========================================================================
    2. Global Base Styles
    ========================================================================== */
@@ -335,6 +406,70 @@ a {
 
 .hamburger-icon::before { top: -8px; }
 .hamburger-icon::after { top: 8px; }
+
+/* Theme Toggle Button */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+.theme-switch {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  background: linear-gradient(180deg, var(--bg-leather-dark), var(--bg-leather-mid));
+  border-radius: 13px;
+  border: 2px solid var(--brass-dark);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.6), 0 1px 1px rgba(255,255,255,0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  transition: all var(--transition-smooth);
+}
+
+.theme-switch::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--brass-shine), var(--brass-mid));
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.5), inset -1px -1px 2px rgba(0,0,0,0.3);
+  transition: transform var(--transition-bounce);
+  z-index: 2;
+}
+
+body.dark-theme .theme-switch::before {
+  transform: translateX(24px);
+}
+
+.theme-switch .icon-sun,
+.theme-switch .icon-moon {
+  font-size: 10px;
+  color: var(--brass-light);
+  z-index: 1;
+}
+
+.theme-switch .icon-sun {
+  opacity: 1;
+}
+
+.theme-switch .icon-moon {
+  opacity: 0.5;
+}
+
+body.dark-theme .theme-switch .icon-sun {
+  opacity: 0.5;
+}
+
+body.dark-theme .theme-switch .icon-moon {
+  opacity: 1;
+}
 
 /* ==========================================================================
    6. Hero Section
