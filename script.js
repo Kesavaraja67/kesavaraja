@@ -1917,7 +1917,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Leaflet Map Initialization
   const mapContainer = document.getElementById('map');
   if (mapContainer && typeof L !== 'undefined') {
-    const initialView = { center: [20.5, 78.9], zoom: 4 };
+    const initialView = { center: [20, 10], zoom: 1 };
     const map = L.map('map', {
       center: initialView.center,
       zoom: initialView.zoom,
