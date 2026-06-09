@@ -1960,7 +1960,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const locations = [
       { coords: [10.7905, 78.7047], popup: "<strong>SRMIST</strong><br>Tiruchirappalli<br>B.Tech CSE" },
-      { coords: [13.0827, 80.2707], popup: "<strong>Open Source</strong><br>Chennai<br>AI Linux OS" }
+      { coords: [40.7608, -111.8910], popup: "<strong>Open Source</strong><br>Salt Lake City, Utah, United States<br>AI Linux OS" }
     ];
 
     locations.forEach(loc => {
