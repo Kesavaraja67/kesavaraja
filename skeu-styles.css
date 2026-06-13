@@ -374,6 +374,11 @@ a {
   transform: scaleY(0.95);
 }
 
+body.dark-theme .nav-tab.active {
+  color: #fff;
+  text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+}
+
 .nav-toggle {
   display: none;
   background: none;
@@ -585,6 +590,14 @@ body.dark-theme .theme-switch .icon-moon {
   white-space: nowrap;
 }
 
+body.dark-theme .cta-button:hover {
+  background: var(--bg-leather-dark);
+  color: var(--brass-shine);
+  border-color: var(--brass-shine);
+  box-shadow: inset 0 2px 15px rgba(0,0,0,0.9), 0 8px 20px rgba(0,0,0,0.5);
+  transform: translateY(-2px);
+}
+
 .cta-button:hover {
   background: var(--bg-leather-dark);
   color: var(--brass-shine);
@@ -745,6 +758,10 @@ body.dark-theme .theme-switch .icon-moon {
   border-color: var(--brass-shine);
 }
 
+body.dark-theme .tech-badge-pill:hover {
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.2), 0 4px 8px rgba(255,255,255,0.1);
+}
+
 /* ==========================================================================
    7. Section Dividers
    ========================================================================== */
@@ -847,6 +864,10 @@ mark {
   padding: 0 0.2rem;
 }
 
+body.dark-theme mark {
+  background: linear-gradient(transparent 60%, rgba(201,160,64,0.2) 60%);
+}
+
 .page-curl {
   position: absolute;
   bottom: 0;
@@ -875,6 +896,12 @@ mark {
   border-radius: 2px;
   position: relative;
   transition: transform var(--transition-snap);
+}
+
+body.dark-theme .index-card {
+  background: #362D26;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.2);
+  border-top-color: var(--brass-mid);
 }
 
 .index-card:nth-child(1) { transform: rotate(-2deg); }
@@ -1111,6 +1138,13 @@ mark {
   display: inline-block;
 }
 
+body.dark-theme .typewriter-key {
+  background: #4A3F35;
+  border-color: #5C4A3A;
+  color: var(--ink-dark);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.3);
+}
+
 /* ==========================================================================
    11. Projects Section
    ========================================================================== */
@@ -1323,6 +1357,11 @@ mark {
   overflow: hidden;
 }
 
+body.dark-theme .diploma-card {
+  background: #2A241F;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
 .diploma-watermark {
   position: absolute;
   top: 50%; left: 50%;
@@ -1387,6 +1426,12 @@ mark {
   padding: 2rem 1.5rem;
   box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
   background-image: repeating-linear-gradient(transparent, transparent 30px, #A8D8D8 30px, #A8D8D8 31px);
+}
+
+body.dark-theme .notebook-pages {
+  background: #2A241F;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+  background-image: repeating-linear-gradient(transparent, transparent 30px, #669999 30px, #669999 31px);
 }
 
 .lang-item {
@@ -1756,7 +1801,7 @@ mark {
 .manila-folder {
   background: #E8DCC4;
   border-radius: 4px 12px 4px 4px;
-  box-shadow: 
+  box-shadow:
     inset 0 0 20px rgba(139,105,60,0.1),
     0 8px 16px rgba(0,0,0,0.2),
     0 2px 4px rgba(0,0,0,0.1);
@@ -1766,6 +1811,15 @@ mark {
   border: 1px solid #D4C4A8;
 }
 
+body.dark-theme .manila-folder {
+  background: #3D2A1F;
+  border-color: #4A3112;
+  box-shadow:
+    inset 0 0 20px rgba(139,105,60,0.2),
+    0 8px 16px rgba(0,0,0,0.3),
+    0 2px 4px rgba(0,0,0,0.2);
+}
+
 .manila-folder::before {
   content: '';
   position: absolute;
@@ -1773,6 +1827,10 @@ mark {
   background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(139, 105, 60, 0.05) 2px, rgba(139, 105, 60, 0.05) 4px);
   border-radius: inherit;
   pointer-events: none;
+}
+
+body.dark-theme .manila-folder::before {
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(200,200,200,0.03) 2px, rgba(200,200,200,0.03) 4px);
 }
 
 .folder-tab-top {
@@ -1830,6 +1888,10 @@ mark {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+}
+
+body.dark-theme .resume-file-card {
+  border-color: rgba(139,105,60,0.2);
 }
 
 .resume-file-card::after {
